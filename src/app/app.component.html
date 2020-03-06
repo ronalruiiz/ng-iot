@@ -1,0 +1,32 @@
+<app-navigation-bar (toggleSidenav)="sidenav.toggle()"></app-navigation-bar>
+<mat-sidenav-container autosize>
+    <mat-sidenav style="width:270px;" #sidenav [mode]="this.typeSideMenu" [opened]="this.typeSideMenu == 'side'" role="navigation">
+        <mat-toolbar>
+            <mat-toolbar-row>
+                <h2>NG-IOT</h2>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-nav-list>
+            <h2 matSubheader> Operations </h2>
+            <a [routerLinkActive]="'list-item-active'"
+                [routerLinkActiveOptions]="{exact: true}" [routerLink]="['']" mat-list-item>
+                <mat-icon class="mqtt-side-icons" matListIcon> dashboard </mat-icon> Dashboard
+            </a>
+            <a [routerLinkActive]="'list-item-active'"
+                [routerLinkActiveOptions]="{exact: true}" [routerLink]="['report']" mat-list-item>
+                <mat-icon class="mqtt-side-icons" matListIcon> book </mat-icon> Reporte
+            </a>
+            <a [routerLinkActive]="'list-item-active'"
+                [routerLinkActiveOptions]="{exact: true}" [routerLink]="['controller']" mat-list-item>
+                <mat-icon class="mqtt-side-icons" matListIcon> settings_remote </mat-icon> Controles
+            </a>
+            <a [routerLinkActive]="'list-item-active'"
+                [routerLinkActiveOptions]="{exact: true}" [routerLink]="['device']" mat-list-item>
+                <mat-icon class="mqtt-side-icons" matListIcon> memory </mat-icon> Dispositivos
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content role="main">
+            <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

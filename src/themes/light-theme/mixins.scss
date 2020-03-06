@@ -1,0 +1,7 @@
+@import "../../app/app.component";
+@import "../../app/components/shared/navigation-bar/navigation-bar.component";
+
+@mixin mqtt-light-theme($theme) {
+    @include mqtt-app-theme($theme);
+    @include mqtt-nav-theme($theme);
+}

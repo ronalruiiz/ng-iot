@@ -1,0 +1,32 @@
+<app-command-bar>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+        <button mat-button class="mqtt-command-bar-button">
+            <mat-icon>library_add</mat-icon>
+            {{ 'WIDGET' }}
+        </button>
+    </div>
+</app-command-bar>
+
+<app-activity-bar>
+    <div style="font-weight: bold;margin-right: 10px">
+        {{ "Dashboard" }}
+    </div>
+    <mat-icon>home</mat-icon>
+</app-activity-bar>
+
+<div class="crm-dashboard-container">
+    <gridster [options]="options" style="background-color: transparent;">
+        <ng-container *ngFor="let item of items" style="overflow: hidden;">
+            <gridster-item  [item]="item" [class.mat-elevation-z3]="'true'" class="crm-dashboard-widget">
+                <mat-toolbar class="crm-dashboard-widget-toolbar drag-handler">
+                    <mat-toolbar-row class="crm-dashboard-widget-toolbar-row">
+                        {{item.name}}
+                        <div fxFlex fxLayout fxLayoutAlign="flex-end">
+                        </div>
+                    </mat-toolbar-row>
+                </mat-toolbar>
+                    <ndc-dynamic [ndcDynamicComponent]="components[item.component]"></ndc-dynamic>
+            </gridster-item>
+        </ng-container>
+    </gridster>
+</div>

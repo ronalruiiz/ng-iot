@@ -1,0 +1,29 @@
+<app-command-bar>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+        <button (click)="voiceSearch()"  mat-button class="mqtt-command-bar-button">
+            <mat-icon>keyboard_voice</mat-icon>
+            {{ 'COMANDO (BETA)' }}
+        </button>
+        <button mat-button class="mqtt-command-bar-button">
+            <mat-icon>library_add</mat-icon>
+            {{ 'DISPOSITIVOS' }}
+        </button>
+    </div>
+</app-command-bar>
+<app-activity-bar>
+    <div style="font-weight: bold;margin-right: 10px">
+        {{ "Controles" }}
+    </div>
+    <mat-icon>home</mat-icon>
+</app-activity-bar>
+<div class="crm-dashboard-container">
+    <div style="max-width: 90%;margin:0 auto">
+        <mat-card (click)="controllerAction()" class="example-card">
+            <mat-card-header>
+                <div [ngClass]="{'led-on':this.led}" mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Foco</mat-card-title>
+                <mat-card-subtitle>Cuarto</mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+    </div>
+</div>

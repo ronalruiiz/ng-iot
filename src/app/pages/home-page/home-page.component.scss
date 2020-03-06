@@ -1,0 +1,58 @@
+
+$mat-xsmall: 'max-width: 599px';
+$mat-small: 'max-width: 959px';
+$crm-dashboard-widget-toolbar-height-desktop: 40px !default;
+$crm-dashboard-widget-toolbar-height-mobile: 40px !default;
+
+.grid-container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.mqtt-command-bar-button {
+    min-width: 48px;
+    padding: 0 16px;
+}
+mat-icon{
+    color: #37474f;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.crm-dashboard-widget {
+    border-radius: 4px;
+}
+
+
+.crm-dashboard-widget-toolbar {
+  height: $crm-dashboard-widget-toolbar-height-desktop;
+  background-color: transparent;
+  min-height: $crm-dashboard-widget-toolbar-height-desktop;
+
+  @media ($mat-xsmall) {
+    height: $crm-dashboard-widget-toolbar-height-mobile;
+    min-height: $crm-dashboard-widget-toolbar-height-mobile
+  }
+}
+
+.crm-dashboard-widget-toolbar-row {
+  height: $crm-dashboard-widget-toolbar-height-desktop;
+  min-height: $crm-dashboard-widget-toolbar-height-desktop;
+
+  @media ($mat-xsmall) {
+    height: $crm-dashboard-widget-toolbar-height-mobile;
+    min-height: $crm-dashboard-widget-toolbar-height-mobile
+  }
+}
+
+.crm-dashboard-widget-toolbar-button {
+  min-width: 32px;
+  padding: 0 4px; // 16
+}

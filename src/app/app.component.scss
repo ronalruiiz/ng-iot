@@ -1,0 +1,31 @@
+@mixin mqtt-app-theme($theme) {
+    .list-item-active {
+        font-weight: bold;
+        color: mat-color(map-get($theme, primary)) !important;
+
+        .mqtt-side-icons {
+            color: mat-color(map-get($theme, primary)) !important;
+        }
+
+        background: rgba(mat-color(map-get($theme, primary), darker),0.3);
+
+        &:hover {
+            background: rgba(mat-color(map-get($theme, primary), darker),0.3) ;
+        }
+        &:focus{
+            background: rgba(mat-color(map-get($theme, primary), darker),0.3) ;
+        }
+
+    }
+
+    .mqtt-side-icons {
+        color: mat-color(map-get($theme, primary));
+    }
+}
+
+.navigation-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}

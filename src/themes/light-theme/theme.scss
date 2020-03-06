@@ -1,0 +1,57 @@
+@import '~@angular/material/theming';
+
+@import "../fonts";
+@import "../icons";
+@import "./mixins";
+@import "./palette";
+@import "./typography";
+
+@include mat-core($custom-typography);
+
+$light-theme: mat-light-theme($light-theme-primary, $light-theme-accent, $light-theme-warn);
+// $dark-theme: mat-dark-theme($dark-theme-primary, $dark-theme-accent, $dark-theme-warn);
+
+@include angular-material-theme($light-theme);
+
+// Theme Custom components
+
+
+@include mqtt-light-theme($light-theme);
+
+// ------------------------------------------------------------------------------------------------------------------ //
+
+$foreground: map-get($light-theme, foreground);
+$background: map-get($light-theme, background);
+
+.mat-sidenav-container {
+    height: 100vh;
+  }
+  
+  // https://github.com/angular/material2/blob/master/src/lib/core/style/_variables.scss
+  
+  $sidenav-width: 320px; // 240px;
+  
+  .mat-sidenav {
+    width: $sidenav-width;
+  }
+  
+  .mat-subheader {
+    font-size: 18px !important;
+    font-weight: 900 !important;
+  }
+  
+  .mat-vertical-content {
+    padding: 24px 24px 24px 24px !important;
+  }
+  
+  // auth-local - login, register
+    
+  .mat-header-row {
+    // background-color: mat-color($light-theme-accent, 300);
+    background-color: #f5f5f5;
+  }
+  
+  .mat-footer-row {
+    // background-color: mat-color($light-theme-accent, 300);
+    background-color: #f5f5f5;
+  }

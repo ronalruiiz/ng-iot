@@ -1,0 +1,63 @@
+<app-command-bar>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+        <button mat-button (click)="exporter.exportTable('xks')" class="mqtt-command-bar-button">
+            <mat-icon>save</mat-icon>
+            {{ 'GENERAR' }}
+        </button>
+    </div>
+</app-command-bar>
+<app-activity-bar>
+    <div style="font-weight: bold;margin-right: 10px">
+        {{ "Reporte" }}
+    </div>
+    <mat-icon>home</mat-icon>
+</app-activity-bar>
+<div class="crm-content-container">
+    <div style="width: 95%;margin: 0 auto;">
+        <mat-form-field style="margin-left:20px">
+            <input (dateChange)="applyFilter()" [(ngModel)]="initDate" matInput [matDatepicker]="init" placeholder="Inicio">
+            <mat-datepicker-toggle matSuffix [for]="init"></mat-datepicker-toggle>
+            <mat-datepicker #init></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field style="margin-left:20px">
+            <input (dateChange)="applyFilter()" matInput [(ngModel)]="endDate" [matDatepicker]="end" placeholder="Fin">
+            <mat-datepicker-toggle  matSuffix [for]="end"></mat-datepicker-toggle>
+            <mat-datepicker #end></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field style="margin-left:20px">
+            <mat-label>Tipo de dispositivo</mat-label>
+            <mat-select [(value)]="option" (valueChange)="updateTable()">
+                <mat-option>None</mat-option>
+                <mat-option value="temp">Temperatura</mat-option>
+                <mat-option value="hum">Humedad</mat-option>
+                <mat-option value="ritmo">Ritmo</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="example-container">
+            <table matTableExporter #exporter="matTableExporter" mat-table [dataSource]="dataSource" >
+                <!-- Name Column -->
+                <ng-container matColumnDef="value">
+                    <mat-header-cell *matHeaderCellDef> Value</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+                </ng-container>
+                <!-- Weight Column -->
+                <ng-container matColumnDef="device">
+                    <mat-header-cell *matHeaderCellDef> Device</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.device}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="type_device">
+                    <mat-header-cell *matHeaderCellDef> Type Device</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.type_device}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="created_at">
+                    <mat-header-cell *matHeaderCellDef> Fecha Creación</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.created_at}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

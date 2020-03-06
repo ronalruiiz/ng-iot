@@ -1,0 +1,23 @@
+mat-icon{
+    color: #37474f;
+}
+table {
+    width: 100%;
+}
+
+.customWidthClass{
+    flex: 0 0 200px;
+}
+
+.example-container{
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+    margin-bottom: 10px;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
